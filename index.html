@@ -130,6 +130,58 @@
                 transform: translateY(0) scale(1); 
             }
         }
+
+        /* --- ESTILOS PARA EL CONTROL DE VOLUMEN --- */
+        .volume-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ec4899, #a855f7);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ec4899, #a855f7);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.6);
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ec4899, #a855f7);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .volume-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.6);
+        }
+
+        .volume-slider::-moz-range-track {
+            height: 6px;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ec4899, #a855f7);
+            border: none;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-600 min-h-screen flex items-center justify-center p-6 selection:bg-pink-300 selection:text-pink-900">
@@ -173,7 +225,7 @@
         <p class="text-md text-gray-600 fade-in-up delay-5">
             Con todo mi amor,
             <br>
-            <span class="font-semibold">[Puedes poner tu nombre aquí]</span>
+            <span class="font-semibold">Tu Novio</span>
         </p>
 
         <!-- Botón para controlar la música -->
@@ -182,6 +234,22 @@
                 <span id="musicIcon">🎵</span> <span id="musicText">Reproducir Nuestra Canción</span>
             </button>
             <p class="text-sm text-gray-500 mt-2 fade-in-up" style="animation-delay: 3s;">Haz clic para reproducir nuestra canción especial</p>
+            
+            <!-- Control de volumen -->
+            <div class="mt-6 fade-in-up" style="animation-delay: 3.2s;">
+                <div class="flex items-center justify-center space-x-3 bg-white bg-opacity-60 rounded-full px-6 py-3 shadow-lg backdrop-blur-sm">
+                    <span class="text-gray-600 text-sm">🔊</span>
+                    <input 
+                        type="range" 
+                        id="volumeControl" 
+                        min="0" 
+                        max="100" 
+                        value="50" 
+                        class="volume-slider flex-1 max-w-24"
+                    >
+                    <span id="volumeText" class="text-gray-600 text-sm font-medium min-w-8">50%</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -195,7 +263,7 @@
         // --- Sistema de audio HTML5 (mucho más simple y confiable) ---
         var audio;
         var isPlaying = false;
-        var musicButton, musicIcon, musicText;
+        var musicButton, musicIcon, musicText, volumeControl, volumeText;
 
         // Inicialización cuando la página carga
         document.addEventListener('DOMContentLoaded', function() {
@@ -206,6 +274,8 @@
             musicIcon = document.getElementById('musicIcon');
             musicText = document.getElementById('musicText');
             audio = document.getElementById('background-music');
+            volumeControl = document.getElementById('volumeControl');
+            volumeText = document.getElementById('volumeText');
             
             if (musicButton && audio) {
                 // Configurar el botón
@@ -213,9 +283,33 @@
                 musicButton.disabled = false;
                 musicText.textContent = 'Reproducir Nuestra Canción';
                 
+                // Configurar volumen inicial
+                audio.volume = 0.5; // 50%
+                
                 console.log("Reproductor de audio configurado correctamente");
             } else {
                 console.error("No se pudieron encontrar los elementos de audio");
+            }
+
+            // Configurar control de volumen
+            if (volumeControl && audio) {
+                volumeControl.addEventListener('input', function() {
+                    const volume = this.value / 100;
+                    audio.volume = volume;
+                    volumeText.textContent = this.value + '%';
+                    
+                    // Cambiar icono según el volumen
+                    const volumeIcon = volumeControl.previousElementSibling;
+                    if (volume === 0) {
+                        volumeIcon.textContent = '🔇';
+                    } else if (volume < 0.3) {
+                        volumeIcon.textContent = '🔈';
+                    } else if (volume < 0.7) {
+                        volumeIcon.textContent = '🔉';
+                    } else {
+                        volumeIcon.textContent = '🔊';
+                    }
+                });
             }
         });
 
