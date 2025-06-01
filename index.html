@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Mensaje Muy Especial Para Ti ❤️ 🎶</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo base para el cuerpo del documento */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden; 
+        }
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* --- ANIMACIONES DE ENTRADA PARA ELEMENTOS DEL TEXTO --- */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.0s; }
+        .delay-3 { animation-delay: 1.5s; }
+        .delay-4 { animation-delay: 2.0s; }
+        .delay-5 { animation-delay: 2.5s; }
+        .delay-card { animation-delay: 0.2s; }
+
+        /* --- ANIMACIÓN PARA EL ICONO DE CORAZÓN --- */
+        .pulsate {
+            animation: pulsate 1.5s infinite ease-in-out;
+        }
+        @keyframes pulsate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* --- ANIMACIÓN DE ENTRADA PARA LA TARJETA PRINCIPAL --- */
+        .card-enter {
+            animation: cardEnter 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+        }
+        @keyframes cardEnter {
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        /* --- ANIMACIÓN PARA LOS EMOJIS BRILLANTES --- */
+        .sparkle-emoji {
+            display: inline-block;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        /* --- ANIMACIÓN DE DESTELLO PARA TEXTO ESPECIAL --- */
+        .text-glow {
+            animation: textGlow 2.5s infinite ease-in-out;
+        }
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(128, 0, 128, 0.5), 0 0 10px rgba(128, 0, 128, 0.3); }
+            50% { text-shadow: 0 0 15px rgba(186, 85, 211, 0.8), 0 0 25px rgba(186, 85, 211, 0.5); }
+        }
+
+        /* --- PARTÍCULAS FLOTANTES DE FONDO (CSS PURO) --- */
+        .particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            opacity: 0;
+        }
+        .particle:nth-child(1) { width: 7px; height: 7px; left: 10%; animation-duration: 15s; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 10px; height: 10px; left: 20%; animation-duration: 12s; animation-delay: -2s; background-color: rgba(255, 192, 203, 0.4); }
+        .particle:nth-child(3) { width: 5px; height: 5px; left: 30%; animation-duration: 18s; animation-delay: -4s; }
+        .particle:nth-child(4) { width: 8px; height: 8px; left: 40%; animation-duration: 10s; animation-delay: -1s; background-color: rgba(221, 160, 221, 0.4); }
+        .particle:nth-child(5) { width: 12px; height: 12px; left: 50%; animation-duration: 22s; animation-delay: -5s; }
+        .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-duration: 16s; animation-delay: -3s; background-color: rgba(255, 192, 203, 0.3); }
+        .particle:nth-child(7) { width: 9px; height: 9px; left: 70%; animation-duration: 13s; animation-delay: -6s; }
+        .particle:nth-child(8) { width: 4px; height: 4px; left: 80%; animation-duration: 20s; animation-delay: -2.5s; background-color: rgba(221, 160, 221, 0.3); }
+        .particle:nth-child(9) { width: 11px; height: 11px; left: 90%; animation-duration: 17s; animation-delay: -1.5s; }
+        .particle:nth-child(10) { width: 7px; height: 7px; left: 5%; animation-duration: 19s; animation-delay: -3.5s; background-color: rgba(255, 192, 203, 0.4); }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* --- MEJORAS VISUALES ADICIONALES --- */
+        .heart-float {
+            position: fixed;
+            color: rgba(255, 182, 193, 0.7);
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 100;
+            animation: heartFloat 4s ease-out forwards;
+        }
+        @keyframes heartFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
+        }
+
+        .card-hover-effect:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(255, 192, 203, 0.3);
+        }
+
+        /* Mejora de la animación de entrada */
+        .enhanced-fade-in {
+            animation: enhancedFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+        }
+        @keyframes enhancedFadeIn {
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-600 min-h-screen flex items-center justify-center p-6 selection:bg-pink-300 selection:text-pink-900">
+    
+    <div class="particles">
+        <div class="particle"></div> <div class="particle"></div> <div class="particle"></div> <div class="particle"></div> <div class="particle"></div>
+        <div class="particle"></div> <div class="particle"></div> <div class="particle"></div> <div class="particle"></div> <div class="particle"></div>
+    </div>
+
+    <div class="bg-white bg-opacity-90 backdrop-blur-lg rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full text-center transform transition-all duration-500 hover:scale-105 card-enter delay-card card-hover-effect">
+        
+        <div class="text-pink-500 text-5xl mb-6 fade-in-up pulsate">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block h-12 w-12" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+        </div>
+
+        <h1 class="dancing-script text-5xl md:text-6xl text-gray-800 mb-6 fade-in-up delay-1">
+            Para Mi Persona Favorita
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-700 mb-4 fade-in-up delay-2">
+            Quería tomar un momento para recordarte lo increíblemente especial que eres para mí.
+        </p>
+
+        <p class="text-lg md:text-xl text-gray-700 mb-8 fade-in-up delay-3">
+            Tu sonrisa ilumina mis días y tu compañía hace que cada momento sea inolvidable. Eres mi inspiración, mi alegría y mi más grande aventura.
+            <br><span class="sparkle-emoji">✨</span><span class="sparkle-emoji" style="animation-delay: 0.3s;">💖</span><span class="sparkle-emoji" style="animation-delay: 0.6s;">✨</span>
+        </p>
+
+        <div class="bg-pink-50 rounded-lg p-6 mb-6 fade-in-up delay-3" style="animation-delay: 2.2s;">
+            <p class="text-lg text-gray-700 italic">
+                "En cada amanecer pienso en ti, en cada atardecer te llevo conmigo. Eres mi hogar, mi aventura y mi tranquilidad al mismo tiempo."
+            </p>
+        </div>
+
+        <p class="text-xl md:text-2xl font-semibold text-purple-700 mb-10 fade-in-up delay-4 dancing-script text-glow">
+            ¡Gracias por ser tú!
+        </p>
+
+        <p class="text-md text-gray-600 fade-in-up delay-5">
+            Con todo mi amor,
+            <br>
+            <span class="font-semibold">[Puedes poner tu nombre aquí]</span>
+        </p>
+
+        <!-- Botón para controlar la música -->
+        <div class="mt-8 fade-in-up delay-5">
+            <button id="musicButton" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                <span id="musicIcon">🎵</span> <span id="musicText">Reproducir Nuestra Canción</span>
+            </button>
+            <p class="text-sm text-gray-500 mt-2 fade-in-up" style="animation-delay: 3s;">Haz clic para reproducir nuestra canción especial</p>
+        </div>
+    </div>
+
+    <!-- Audio HTML5 para la música local -->
+    <audio id="background-music" loop preload="auto" style="display: none;">
+        <source src="fondo.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <script>
+        // --- Sistema de audio HTML5 (mucho más simple y confiable) ---
+        var audio;
+        var isPlaying = false;
+        var musicButton, musicIcon, musicText;
+
+        // Inicialización cuando la página carga
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Inicializando reproductor de audio local...");
+            
+            // Obtener elementos del DOM
+            musicButton = document.getElementById('musicButton');
+            musicIcon = document.getElementById('musicIcon');
+            musicText = document.getElementById('musicText');
+            audio = document.getElementById('background-music');
+            
+            if (musicButton && audio) {
+                // Configurar el botón
+                musicButton.addEventListener('click', toggleMusic);
+                musicButton.disabled = false;
+                musicText.textContent = 'Reproducir Nuestra Canción';
+                
+                console.log("Reproductor de audio configurado correctamente");
+            } else {
+                console.error("No se pudieron encontrar los elementos de audio");
+            }
+        });
+
+        function toggleMusic() {
+            if (!audio) return;
+            
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.textContent = '🎵';
+                musicText.textContent = 'Reproducir Nuestra Canción';
+                isPlaying = false;
+                console.log("Música pausada");
+            } else {
+                // Intentar reproducir
+                audio.play().then(() => {
+                    musicIcon.textContent = '⏸️';
+                    musicText.textContent = 'Pausar Música';
+                    isPlaying = true;
+                    console.log("Música reproduciéndose 🎶");
+                }).catch((error) => {
+                    console.error("Error al reproducir audio:", error);
+                    showAudioError("No se pudo reproducir el audio. Haz clic para intentar de nuevo.");
+                });
+            }
+        }
+
+        function showAudioError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.innerHTML = `🎵 ${message}`;
+            errorDiv.className = 'fixed bottom-4 left-4 bg-blue-500 bg-opacity-90 text-white px-4 py-2 rounded-lg text-sm shadow-lg z-50';
+            document.body.appendChild(errorDiv);
+            setTimeout(() => { errorDiv.remove(); }, 5000);
+        }
+
+        // Eventos adicionales del audio
+        document.addEventListener('DOMContentLoaded', function() {
+            if (audio) {
+                audio.addEventListener('loadeddata', function() {
+                    console.log("Audio cargado correctamente");
+                });
+                
+                audio.addEventListener('error', function(e) {
+                    console.error("Error cargando audio:", e);
+                    showAudioError("No se pudo cargar el archivo de audio. Verifica que 'tu-cancion.mp3' existe.");
+                });
+                
+                audio.addEventListener('ended', function() {
+                    // El audio tiene 'loop' así que esto normalmente no se ejecutará
+                    console.log("Audio terminado (se reiniciará automáticamente)");
+                });
+            }
+        });
+
+        // --- EFECTOS DE INTERACCIÓN ADICIONALES ---
+        
+        // Efecto de corazones flotantes al hacer clic
+        document.addEventListener('click', function(e) {
+            createHeartEffect(e.clientX, e.clientY);
+        });
+
+        function createHeartEffect(x, y) {
+            const hearts = ['💖', '💕', '💗', '💓', '❤️'];
+            const heart = document.createElement('div');
+            heart.className = 'heart-float';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = (x - 10) + 'px';
+            heart.style.top = (y - 10) + 'px';
+            heart.style.animationDelay = Math.random() * 0.5 + 's';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // Efecto de entrada mejorado para la tarjeta
+        window.addEventListener('load', function() {
+            const card = document.querySelector('.card-enter');
+            if (card) {
+                setTimeout(() => {
+                    card.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 200);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
