@@ -221,7 +221,7 @@
             </p>
         </div>
 
-        <p class="text-xl md:text-2xl font-semibold text-purple-700 mb-6 fade-in-up delay-4 dancing-script text-glow">
+        <p class="text-xl md:text-2xl font-semibold text-purple-700 fade-in-up delay-4 dancing-script text-glow">
             ¡Gracias por ser tú!
         </p>
 
@@ -247,10 +247,10 @@
                         id="volumeControl" 
                         min="0" 
                         max="100" 
-                        value="50" 
+                        value="10" 
                         class="volume-slider flex-1 max-w-24"
                     >
-                    <span id="volumeText" class="text-gray-600 text-sm font-medium min-w-8">50%</span>
+                    <span id="volumeText" class="text-gray-600 text-sm font-medium min-w-8">10%</span>
                 </div>
             </div>
         </div>
@@ -284,10 +284,10 @@
                 // Configurar el botón
                 musicButton.addEventListener('click', toggleMusic);
                 musicButton.disabled = false;
-                musicText.textContent = 'Reproducir Nuestra Canción';
+                musicText.textContent = 'Reproducir Canción';
                 
                 // Configurar volumen inicial
-                audio.volume = 0.5; // 50%
+                audio.volume = 0.1; // 50%
                 
                 console.log("Reproductor de audio configurado correctamente");
             } else {
