@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Examen de Grado: ¡Vas a Brillar! 🌟🎓</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Efectos de cristal simplificados */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .glass-effect-strong {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px 0 rgba(31, 38, 135, 0.4);
+        }
+
+        /* Animaciones mejoradas */
+        .fade-in-up {
+            animation: fadeInUpEnhanced 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUpEnhanced {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px) scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
+        .delay-6 { animation-delay: 1.2s; }
+        .delay-7 { animation-delay: 1.4s; }
+        .delay-8 { animation-delay: 1.6s; }
+
+        /* Título con efectos 3D */
+        .title-3d {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff6b6b);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Animación del emoji principal */
+        .main-emoji {
+            font-size: 5rem;
+            animation: floatBounce 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+        }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-15px) rotate(-5deg) scale(1.05); }
+            50% { transform: translateY(-10px) rotate(0deg) scale(1.1); }
+            75% { transform: translateY(-5px) rotate(5deg) scale(1.05); }
+        }
+
+        /* Efectos de partículas CORREGIDOS */
+        .particle-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1; /* CAMBIADO: ahora está detrás del contenido */
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite linear;
+        }
+
+        .particle-emoji {
+            position: absolute;
+            font-size: 18px;
+            animation: emojiFloat 15s infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes emojiFloat {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) rotate(720deg) scale(1.2); opacity: 0; }
+        }
+
+        /* Tarjetas con efectos hover mejorados */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Texto con efectos rainbow */
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowShift 2s ease-in-out infinite;
+            font-weight: 700;
+        }
+
+        @keyframes rainbowShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Iconos con efectos pulsantes */
+        .icon-enhanced {
+            font-size: 2.5rem;
+            animation: iconPulseEnhanced 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+        }
+
+        @keyframes iconPulseEnhanced {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(0deg); }
+        }
+
+        /* Configuración de partículas */
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: -2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: -4s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: -6s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: -8s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: -10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: -12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: -14s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: -16s; }
+        .particle:nth-child(10) { left: 5%; animation-delay: -18s; }
+
+        .particle-emoji:nth-child(11) { left: 15%; animation-delay: -1s; }
+        .particle-emoji:nth-child(12) { left: 35%; animation-delay: -3s; }
+        .particle-emoji:nth-child(13) { left: 55%; animation-delay: -5s; }
+        .particle-emoji:nth-child(14) { left: 75%; animation-delay: -7s; }
+        .particle-emoji:nth-child(15) { left: 95%; animation-delay: -9s; }
+
+        /* Botón mejorado */
+        .btn-enhanced {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 300%;
+            animation: buttonGradient 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .btn-enhanced:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes buttonGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Texto brillante mejorado */
+        .text-shine-enhanced {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff6b6b);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShineEnhanced 2s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes textShineEnhanced {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Mensaje flotante mejorado */
+        .floating-message {
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            background-size: 200% 200%;
+            animation: floatingPulse 2s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        @keyframes floatingPulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                background-position: 0% 50%; 
+            }
+            50% { 
+                transform: scale(1.05) rotate(2deg); 
+                background-position: 100% 50%; 
+            }
+        }
+
+        /* Asegurar que el contenido esté visible */
+        .content-container {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 selection:bg-yellow-300 selection:text-purple-900">
+    
+    <!-- Sistema de partículas CORREGIDO -->
+    <div class="particle-system">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle-emoji">⭐</div>
+        <div class="particle-emoji">✨</div>
+        <div class="particle-emoji">🌟</div>
+        <div class="particle-emoji">💫</div>
+        <div class="particle-emoji">🎉</div>
+    </div>
+
+    <!-- Contenido principal con z-index correcto -->
+    <div class="content-container max-w-6xl mx-auto">
+        <!-- Título principal mejorado -->
+        <div class="text-center mb-16 fade-in-up">
+            <div class="main-emoji mb-8">🎓</div>
+            <h1 class="title-3d dancing-script mb-6">
+                ¡Tu Momento de Brillar Ha Llegado!
+            </h1>
+        </div>
+
+        <!-- Tarjeta principal motivacional mejorada -->
+        <div class="glass-effect-strong rounded-3xl shadow-2xl p-10 md:p-16 mb-12 text-center card-hover fade-in-up delay-1">
+            <div class="icon-enhanced mb-8">💖</div>
+            <h2 class="dancing-script text-4xl text-gray-800 mb-8">
+                Mi Wawa, Eres Increíble
+            </h2>
+            <p class="text-xl text-gray-700 mb-6 poppins font-light leading-relaxed">
+                Sé que estos días antes del examen pueden sentirse abrumadores, pero quiero recordarte algo muy importante:
+            </p>
+            <div class="glass-effect rounded-2xl p-8 mb-8">
+                <p class="text-2xl font-bold rainbow-text poppins">
+                    ¡ERES LA PERSONA MÁS INTELIGENTE, DEDICADA Y CAPAZ QUE CONOZCO!
+                </p>
+            </div>
+            <p class="text-gray-700 text-lg poppins font-light leading-relaxed">
+                Has trabajado muy duro para llegar hasta aquí, y cada página que has estudiado, cada concepto que has aprendido, te ha preparado para este momento. Confía en ti misma, porque yo confío completamente en ti.
+            </p>
+        </div>
+
+        <!-- Sección de recordatorios mejorada -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <div class="glass-effect-strong rounded-2xl shadow-xl p-8 card-hover fade-in-up delay-2">
+                <div class="icon-enhanced mb-6">🧠</div>
+                <h3 class="dancing-script text-3xl text-gray-800 mb-4">Tu Inteligencia</h3>
+                <p class="text-gray-700 text-lg poppins font-light leading-relaxed">
+                    Tu mente es brillante y ha absorbido todo el conocimiento necesario. Has demostrado una y otra vez que puedes resolver problemas complejos y entender conceptos profundos. ¡Confía en esa increíble capacidad tuya!
+                </p>
+            </div>
+
+            <div class="glass-effect-strong rounded-2xl shadow-xl p-8 card-hover fade-in-up delay-3">
+                <div class="icon-enhanced mb-6">💪</div>
+                <h3 class="dancing-script text-3xl text-gray-800 mb-4">Tu Fortaleza</h3>
+                <p class="text-gray-700 text-lg poppins font-light leading-relaxed">
+                    Eres mucho más fuerte de lo que imaginas. Has superado desafíos, has persistido cuando las cosas se pusieron difíciles, y has llegado hasta aquí con tu determinación. Esta fuerza interior te llevará al éxito.
+                </p>
+            </div>
+        </div>
+
+        <!-- Mensajes de apoyo mejorados -->
+        <div class="glass-effect-strong rounded-3xl shadow-2xl p-10 md:p-16 mb-12 card-hover fade-in-up delay-4">
+            <div class="icon-enhanced mb-8">❤️</div>
+            <h2 class="dancing-script text-4xl text-gray-800 mb-8">
+                Siempre Estaré Aquí Para Ti
+            </h2>
+            <div class="space-y-6 text-gray-700">
+                <div class="glass-effect rounded-xl p-6">
+                    <p class="text-xl poppins font-medium">
+                        🌟 <strong>Antes del examen:</strong> Estaré aquí para escucharte, para abrazarte si necesitas calma, y para recordarte lo increíble que eres.
+                    </p>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <p class="text-xl poppins font-medium">
+                        🌟 <strong>Durante el examen:</strong> Aunque no pueda estar físicamente contigo, mi amor y mi confianza en ti estarán ahí, dándote fuerza.
+                    </p>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <p class="text-xl poppins font-medium">
+                        🌟 <strong>Después del examen:</strong> Sin importar cómo te sientas, estaré aquí para celebrar contigo, porque ya has ganado al llegar hasta aquí.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consejos prácticos mejorados -->
+        <div class="glass-effect-strong rounded-3xl shadow-2xl p-10 md:p-16 mb-12 card-hover fade-in-up delay-5">
+            <div class="icon-enhanced mb-8">✨</div>
+            <h2 class="dancing-script text-4xl text-gray-800 mb-8">
+                Pequeños Recordatorios Para El Día Del Examen
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                <div class="glass-effect rounded-xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🧘‍♀️</div>
+                    <p class="poppins font-medium"><strong>Respira profundo:</strong> Cuando sientas nervios, toma tres respiraciones profundas. Tu cuerpo y mente se relajarán.</p>
+                </div>
+                
+                <div class="glass-effect rounded-xl p-6 card-hover">
+                    <div class="text-3xl mb-4">⏰</div>
+                    <p class="poppins font-medium"><strong>Maneja tu tiempo:</strong> Tienes el conocimiento, solo organiza tu tiempo para mostrarlo todo.</p>
+                </div>
+                <div class="glass-effect rounded-xl p-6 card-hover">
+                    <div class="text-3xl mb-4">🌈</div>
+                    <p class="poppins font-medium"><strong>Piensa en mí:</strong> Cada vez que necesites motivación, recuerda que creo en ti al 100%.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje final mejorado -->
+        <div class="glass-effect-strong rounded-3xl shadow-2xl p-10 md:p-16 text-center card-hover mb-12 fade-in-up delay-6">
+            <div class="icon-enhanced mb-8">🏆</div>
+            <h2 class="dancing-script text-5xl text-gray-800 mb-8">
+                Ya Eres Mi Campeona
+            </h2>
+            <p class="text-2xl mb-8 poppins font-light text-gray-700 leading-relaxed">
+                Independientemente del resultado, para mí ya eres una triunfadora. Has demostrado dedicación, inteligencia, y una capacidad increíble para crecer y aprender.
+            </p>
+            <div class="glass-effect rounded-2xl p-8 mb-8">
+                <p class="text-3xl font-bold text-shine-enhanced poppins">
+                    ¡VAS A HACER UN TRABAJO EXTRAORDINARIO!
+                </p>
+            </div>
+            <p class="text-xl poppins font-light text-gray-700 leading-relaxed">
+                Te quiero más de lo que las palabras pueden expresar, y estoy increíblemente orgulloso de ti. 
+                <br><br>
+                <strong class="text-2xl rainbow-text">¡Ahora ve y demuéstrales de qué estás hecha, mi wawa!</strong>
+            </p>
+        </div>
+
+        <!-- Botón de regreso mejorado -->
+        <div class="text-center mt-12 fade-in-up delay-7">
+            <a href="index.html" class="btn-enhanced inline-flex items-center text-white font-semibold py-4 px-10 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 poppins text-lg">
+                <span class="mr-3">💖</span> Regresar al Inicio
+            </a>
+        </div>
+    </div>
+
+    <!-- Mensaje especial flotante mejorado -->
+    <div class="fixed bottom-8 right-8 floating-message text-gray-800 px-8 py-4 rounded-full shadow-2xl z-50">
+        <span class="font-bold poppins text-lg">💪 ¡Tú puedes, wawa! 🌟</span>
+    </div>
+
+    <script>
+        // Sistema de efectos de click mejorado
+        document.addEventListener('click', function(e) {
+            createEnhancedEffect(e.clientX, e.clientY);
+        });
+
+        function createEnhancedEffect(x, y) {
+            const effects = ['✨', '🌟', '💫', '⭐', '🎉', '💖', '🏆', '👑', '🌈', '💎'];
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffd93d', '#ff8a80', '#b39ddb', '#81c784'];
+            
+            // Crear múltiples efectos
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const effect = document.createElement('div');
+                    const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    effect.style.cssText = `
+                        position: fixed;
+                        left: ${x + (Math.random() - 0.5) * 100}px;
+                        top: ${y + (Math.random() - 0.5) * 100}px;
+                        font-size: ${20 + Math.random() * 20}px;
+                        color: ${randomColor};
+                        filter: drop-shadow(0 0 10px ${randomColor});
+                        pointer-events: none;
+                        z-index: 1000;
+                        animation: clickBurst 1s ease-out forwards;
+                    `;
+                    effect.textContent = randomEffect;
+                    
+                    document.body.appendChild(effect);
+                    
+                    setTimeout(() => effect.remove(), 1000);
+                }, i * 100);
+            }
+        }
+
+        // Agregar animación CSS para el efecto de click
+        const clickStyle = document.createElement('style');
+        clickStyle.textContent = `
+            @keyframes clickBurst {
+                0% { 
+                    transform: scale(0) rotate(0deg); 
+                    opacity: 1; 
+                }
+                100% { 
+                    transform: scale(2) rotate(360deg); 
+                    opacity: 0; 
+                }
+            }
+        `;
+        document.head.appendChild(clickStyle);
+
+        // Mensaje de carga
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('💖 Página cargada con amor y motivación para tu examen de grado 🎓');
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
