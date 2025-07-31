@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Felicidades por tu Éxito! 🎉💼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Animaciones de entrada */
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.0s; }
+        .delay-3 { animation-delay: 1.5s; }
+        .delay-4 { animation-delay: 2.0s; }
+        .delay-5 { animation-delay: 2.5s; }
+        .delay-6 { animation-delay: 3.0s; }
+        .delay-7 { animation-delay: 3.5s; }
+        .delay-8 { animation-delay: 4.0s; }
+
+        /* Efecto de carta principal */
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(255, 192, 203, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+        
+        .main-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 35px 60px -12px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 192, 203, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* Título con efectos especiales */
+        .title-glow {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff6b6b);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Emoji principal animado */
+        .main-emoji {
+            font-size: 4rem;
+            animation: emojiFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+        }
+
+        @keyframes emojiFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(-5deg) scale(1.05); }
+            50% { transform: translateY(-5px) rotate(0deg) scale(1.1); }
+            75% { transform: translateY(-8px) rotate(5deg) scale(1.05); }
+        }
+
+        /* Partículas flotantes */
+        .particles {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            pointer-events: none; 
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            opacity: 0;
+        }
+        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-duration: 15s; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-duration: 12s; animation-delay: -2s; background-color: rgba(255, 192, 203, 0.5); }
+        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-duration: 18s; animation-delay: -4s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-duration: 10s; animation-delay: -1s; background-color: rgba(221, 160, 221, 0.5); }
+        .particle:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-duration: 22s; animation-delay: -5s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-duration: 16s; animation-delay: -3s; background-color: rgba(255, 192, 203, 0.4); }
+        .particle:nth-child(7) { width: 11px; height: 11px; left: 70%; animation-duration: 13s; animation-delay: -6s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-duration: 20s; animation-delay: -2.5s; background-color: rgba(221, 160, 221, 0.4); }
+        .particle:nth-child(9) { width: 13px; height: 13px; left: 90%; animation-duration: 17s; animation-delay: -1.5s; }
+        .particle:nth-child(10) { width: 9px; height: 9px; left: 5%; animation-duration: 19s; animation-delay: -3.5s; background-color: rgba(255, 192, 203, 0.5); }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Efectos de brillo */
+        .sparkle-emoji {
+            display: inline-block;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        /* Texto con efectos especiales */
+        .text-glow {
+            animation: textGlow 2.5s infinite ease-in-out;
+        }
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(128, 0, 128, 0.5), 0 0 10px rgba(128, 0, 128, 0.3); }
+            50% { text-shadow: 0 0 15px rgba(186, 85, 211, 0.8), 0 0 25px rgba(186, 85, 211, 0.5); }
+        }
+
+        /* Tarjetas especiales */
+        .special-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .special-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Botón mejorado */
+        .btn-special {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 300%;
+            animation: buttonGradient 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .btn-special:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes buttonGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Efectos de corazones flotantes */
+        .heart-float {
+            position: fixed;
+            color: rgba(255, 182, 193, 0.7);
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 100;
+            animation: heartFloat 4s ease-out forwards;
+        }
+        @keyframes heartFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
+        }
+
+        /* Mensaje flotante especial */
+        .floating-message {
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            background-size: 200% 200%;
+            animation: floatingPulse 2s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        @keyframes floatingPulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                background-position: 0% 50%; 
+            }
+            50% { 
+                transform: scale(1.05) rotate(2deg); 
+                background-position: 100% 50%; 
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 selection:bg-pink-300 selection:text-pink-900">
+    
+    <!-- Partículas de fondo -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-card rounded-3xl shadow-2xl p-8 md:p-12 max-w-4xl w-full text-center fade-in-up">
+        
+        <!-- Emoji principal -->
+        <div class="main-emoji mb-8 fade-in-up">
+            🎉
+        </div>
+
+        <!-- Título principal -->
+        <h1 class="dancing-script text-5xl md:text-6xl text-gray-800 mb-8 fade-in-up delay-1 title-glow">
+            ¡Felicidades, Mi Amor!
+        </h1>
+
+        <!-- Mensaje principal personal -->
+        <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-2">
+            <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                ¡Lo Lograste, Mi Wawa!
+            </h2>
+            <p class="text-lg md:text-xl text-gray-700 mb-6 poppins leading-relaxed">
+                Estoy tan orgulloso de ti que no puedo contener mi felicidad. Cada vez que pienso en todo el esfuerzo que pusiste, en las noches de estudio, en los momentos de estrés que superaste, me lleno de admiración por la mujer increíble que eres.
+            </p>
+            <div class="bg-gradient-to-r from-pink-100 to-purple-100 rounded-xl p-6 mb-6">
+                <p class="text-2xl font-bold text-gray-800 poppins text-glow">
+                    ¡APROBASTE TU EXAMEN DE GRADO CON ÉXITO!
+                </p>
+            </div>
+            <p class="text-lg text-gray-700 poppins leading-relaxed">
+                Eres mi inspiración, mi orgullo más grande, y la persona que me hace querer ser mejor cada día. Te quiero más de lo que las palabras pueden expresar.
+                <br><span class="sparkle-emoji">✨</span><span class="sparkle-emoji" style="animation-delay: 0.3s;">💖</span><span class="sparkle-emoji" style="animation-delay: 0.6s;">✨</span>
+            </p>
+        </div>
+
+        <!-- Nueva etapa -->
+        <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-3">
+            <div class="text-4xl mb-6">💼</div>
+            <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                Una Nueva Aventura Te Espera
+            </h2>
+            <p class="text-lg md:text-xl text-gray-700 mb-6 poppins leading-relaxed">
+                Ahora comienza una etapa emocionante en tu vida. La práctica laboral será una oportunidad increíble para mostrar al mundo todo tu talento, tu inteligencia y tu capacidad para brillar en cualquier entorno.
+            </p>
+            <div class="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-6">
+                <p class="text-xl font-bold text-gray-800 poppins text-glow">
+                    ¡ESTÁS LISTA PARA CONQUISTAR EL MUNDO PROFESIONAL!
+                </p>
+            </div>
+        </div>
+
+        <!-- Mensaje personal de apoyo -->
+        <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-4">
+            <div class="text-4xl mb-6">❤️</div>
+            <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                Siempre Estaré Aquí Para Ti
+            </h2>
+            <div class="space-y-4 text-gray-700">
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <p class="text-lg poppins">
+                        🌟 <strong>En cada logro:</strong> Celebraré contigo cada pequeño y gran triunfo, porque cada uno es una prueba de lo extraordinaria que eres.
+                    </p>
+                </div>
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <p class="text-lg poppins">
+                        🌟 <strong>En cada desafío:</strong> Te recordaré lo fuerte que eres y te daré todo mi amor y apoyo incondicional para que nunca te sientas sola.
+                    </p>
+                </div>
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <p class="text-lg poppins">
+                        🌟 <strong>En cada paso:</strong> Estaré aquí para escucharte, para abrazarte, para amarte sin condiciones y para ser tu mayor fan.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consejos personales -->
+        <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-5">
+            <div class="text-4xl mb-6">✨</div>
+            <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                Pequeños Recordatorios Para Ti
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4 text-gray-700">
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <div class="text-2xl mb-2">🌟</div>
+                    <p class="poppins font-medium"><strong>Sé tú misma:</strong> Tu personalidad única y tu forma especial de ver el mundo son tu mayor fortaleza.</p>
+                </div>
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <div class="text-2xl mb-2">🤝</div>
+                    <p class="poppins font-medium"><strong>Construye conexiones:</strong> Las relaciones que formes ahora pueden durar toda tu vida profesional.</p>
+                </div>
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <div class="text-2xl mb-2">📚</div>
+                    <p class="poppins font-medium"><strong>Sigue aprendiendo:</strong> Cada día es una nueva oportunidad para crecer y brillar más.</p>
+                </div>
+                <div class="bg-white bg-opacity-60 rounded-xl p-4">
+                    <div class="text-2xl mb-2">💖</div>
+                    <p class="poppins font-medium"><strong>Confía en ti:</strong> Recuerda que eres capaz de lograr todo lo que te propongas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje final personal -->
+        <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-6">
+            <div class="text-4xl mb-6">🎊</div>
+            <h2 class="dancing-script text-4xl md:text-5xl text-gray-800 mb-6">
+                ¡El Futuro Es Tuyo, Mi Amor!
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-700 mb-6 poppins leading-relaxed">
+                Has superado un gran desafío y ahora estás lista para conquistar el mundo profesional. Tu futuro es brillante y lleno de posibilidades infinitas.
+            </p>
+            <div class="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-xl p-6 mb-6">
+                <p class="text-2xl font-bold text-gray-800 poppins text-glow">
+                    ¡VAS A SER UNA PROFESIONAL EXTRAORDINARIA!
+                </p>
+            </div>
+            <p class="text-lg md:text-xl text-gray-700 poppins leading-relaxed">
+                Te quiero más de lo que las palabras pueden expresar, y estoy increíblemente orgulloso de la mujer que eres y de todo lo que has logrado.
+                <br><br>
+                <strong class="text-2xl dancing-script title-glow">¡Ahora ve y conquista el mundo, mi wawa!</strong>
+            </p>
+        </div>
+
+        <!-- Botón de regreso -->
+        <div class="fade-in-up delay-7">
+            <a href="index.html" class="btn-special inline-flex items-center text-white font-semibold py-4 px-10 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 poppins text-lg">
+                <span class="mr-3">💖</span> Regresar al Inicio
+            </a>
+        </div>
+    </div>
+
+    <!-- Mensaje flotante especial -->
+    <div class="fixed bottom-8 right-8 floating-message text-gray-800 px-8 py-4 rounded-full shadow-2xl z-50">
+        <span class="font-bold poppins text-lg">🎉 ¡Felicidades, wawa! 💼</span>
+    </div>
+
+    <script>
+        // Efectos de corazones flotantes al hacer clic
+        document.addEventListener('click', function(e) {
+            createHeartEffect(e.clientX, e.clientY);
+        });
+
+        function createHeartEffect(x, y) {
+            const hearts = ['💖', '💕', '💗', '💓', '❤️', '🎉', '🏆', '✨'];
+            const heart = document.createElement('div');
+            heart.className = 'heart-float';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = (x - 10) + 'px';
+            heart.style.top = (y - 10) + 'px';
+            heart.style.animationDelay = Math.random() * 0.5 + 's';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // Mensaje de carga
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('🎉 Página cargada con felicitaciones y amor para tu nueva etapa profesional 💼');
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
