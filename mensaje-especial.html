@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Mensaje Especial Para Ti ❤️ 🎂</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animaciones de entrada */
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.0s; }
+        .delay-3 { animation-delay: 1.5s; }
+        .delay-4 { animation-delay: 2.0s; }
+        .delay-5 { animation-delay: 2.5s; }
+        .delay-6 { animation-delay: 3.0s; }
+        .delay-7 { animation-delay: 3.5s; }
+        .delay-8 { animation-delay: 4.0s; }
+
+        /* Efecto de carta principal */
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(255, 192, 203, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .main-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 35px 60px -12px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 192, 203, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* Título con efectos especiales */
+        .title-glow {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff6b6b);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Emoji principal animado */
+        .main-emoji {
+            font-size: 4rem;
+            animation: emojiFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+        }
+
+        @keyframes emojiFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(-5deg) scale(1.05); }
+            50% { transform: translateY(-5px) rotate(0deg) scale(1.1); }
+            75% { transform: translateY(-8px) rotate(5deg) scale(1.05); }
+        }
+
+        /* Contador de cumpleaños */
+        .countdown-container {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 193, 7, 0.8));
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            box-shadow:
+                0 20px 40px rgba(255, 215, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #8B4513, #D2691E, #FFD700, #FFA500);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: countdownGlow 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes countdownGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Partículas flotantes */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: float 25s infinite linear;
+            opacity: 0;
+        }
+        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-duration: 18s; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-duration: 15s; animation-delay: -2s; background-color: rgba(255, 192, 203, 0.5); }
+        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-duration: 22s; animation-delay: -4s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-duration: 12s; animation-delay: -1s; background-color: rgba(221, 160, 221, 0.5); }
+        .particle:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-duration: 25s; animation-delay: -5s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-duration: 19s; animation-delay: -3s; background-color: rgba(255, 192, 203, 0.4); }
+        .particle:nth-child(7) { width: 11px; height: 11px; left: 70%; animation-duration: 16s; animation-delay: -6s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-duration: 23s; animation-delay: -2.5s; background-color: rgba(221, 160, 221, 0.4); }
+        .particle:nth-child(9) { width: 13px; height: 13px; left: 90%; animation-duration: 20s; animation-delay: -1.5s; }
+        .particle:nth-child(10) { width: 9px; height: 9px; left: 5%; animation-duration: 21s; animation-delay: -3.5s; background-color: rgba(255, 192, 203, 0.5); }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Efectos de brillo */
+        .sparkle-emoji {
+            display: inline-block;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        /* Texto con efectos especiales */
+        .text-glow {
+            animation: textGlow 2.5s infinite ease-in-out;
+        }
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(128, 0, 128, 0.5), 0 0 10px rgba(128, 0, 128, 0.3); }
+            50% { text-shadow: 0 0 15px rgba(186, 85, 211, 0.8), 0 0 25px rgba(186, 85, 211, 0.5); }
+        }
+
+        /* Tarjetas especiales */
+        .special-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .special-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Botón mejorado */
+        .btn-special {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 300%;
+            animation: buttonGradient 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .btn-special:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes buttonGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Efectos de corazones flotantes */
+        .heart-float {
+            position: fixed;
+            color: rgba(255, 182, 193, 0.7);
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 100;
+            animation: heartFloat 4s ease-out forwards;
+        }
+        @keyframes heartFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-pink-300 selection:text-pink-900">
+
+    <!-- Partículas de fondo -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="max-w-6xl mx-auto p-6">
+
+        <!-- Botón de regreso -->
+        <div class="mb-8 fade-in-up">
+            <a href="index.html" class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-lg text-white px-6 py-3 rounded-full hover:bg-opacity-30 transition-all duration-300 transform hover:scale-105">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Volver al Inicio
+            </a>
+        </div>
+
+        <!-- Tarjeta principal -->
+        <div class="main-card rounded-3xl shadow-2xl p-8 md:p-12 text-center fade-in-up delay-1">
+
+            <!-- Emoji principal -->
+            <div class="main-emoji mb-8">
+                ❤️
+            </div>
+
+            <!-- Título principal -->
+            <h1 class="dancing-script text-5xl md:text-6xl text-gray-800 mb-8 title-glow">
+                Un Mensaje Especial Para Ti
+            </h1>
+
+            <!-- Mensaje principal personal -->
+            <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-2">
+                <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                    Mi Amor
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-6 playfair leading-relaxed">
+                    Quiero que sepas lo increíblemente agradecido que estoy de conocerte. Cada día a tu lado es un regalo que atesoro profundamente en mi corazón.
+                </p>
+                <div class="bg-gradient-to-r from-pink-100 to-purple-100 rounded-xl p-6 mb-6">
+                    <p class="text-2xl font-bold text-gray-800 playfair text-glow">
+                        ¡TÚ ME HACES EL HOMBRE MÁS FELIZ DEL MUNDO!
+                    </p>
+                </div>
+                <p class="text-lg text-gray-700 playfair leading-relaxed">
+                    Te admiro en todos los aspectos de tu ser. Tu inteligencia, tu bondad, tu fuerza, tu belleza interior y exterior. Estoy profundamente agradecido de que me permitas estar a tu lado.
+                    <br><span class="sparkle-emoji">✨</span><span class="sparkle-emoji" style="animation-delay: 0.3s;">💖</span><span class="sparkle-emoji" style="animation-delay: 0.6s;">✨</span>
+                </p>
+            </div>
+
+            <!-- Promesa personal -->
+            <div class="special-card rounded-2xl p-8 mb-8 fade-in-up delay-3">
+                <div class="text-4xl mb-6">🌟</div>
+                <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                    Mi Promesa
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-6 playfair leading-relaxed">
+                    Siempre buscaré impulsarte y ayudarte a cumplir todos tus logros. Cada meta que alcances será celebrada como si fuera mía propia, porque tu felicidad es mi felicidad.
+                </p>
+                <div class="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-6">
+                    <p class="text-xl font-bold text-gray-800 playfair text-glow">
+                        PARA MÍ SIEMPRE SERÁS MI PRIORIDAD
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contador de cumpleaños -->
+        <div class="countdown-container p-8 text-center fade-in-up delay-4 mb-8">
+            <div class="text-4xl mb-4">🎂</div>
+            <h2 class="dancing-script text-3xl md:text-4xl text-gray-800 mb-6">
+                ¡Queda Poco Para Tu Cumpleaños!
+            </h2>
+
+            <!-- Contador -->
+            <div class="grid grid-cols-4 gap-4 max-w-2xl mx-auto mb-6">
+                <div class="text-center">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="text-sm text-gray-700 font-medium">DÍAS</div>
+                </div>
+                <div class="text-center">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="text-sm text-gray-700 font-medium">HORAS</div>
+                </div>
+                <div class="text-center">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="text-sm text-gray-700 font-medium">MIN</div>
+                </div>
+                <div class="text-center">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="text-sm text-gray-700 font-medium">SEG</div>
+                </div>
+            </div>
+
+            <p class="text-lg text-gray-700 mb-4 playfair">
+                Te deseo lo mejor del mundo en tu día especial. Solo puedo decir que haré todo por hacerte la mujer más feliz del mundo...
+            </p>
+            <div class="bg-white bg-opacity-70 rounded-xl p-6">
+                <p class="text-2xl font-bold text-gray-800 dancing-script text-glow">
+                    ¡Porque te lo mereces y te amo!
+                </p>
+            </div>
+        </div>
+
+        <!-- Mensaje final -->
+        <div class="main-card rounded-3xl shadow-2xl p-8 md:p-12 text-center fade-in-up delay-5">
+            <div class="text-4xl mb-6">💕</div>
+            <h2 class="dancing-script text-4xl md:text-5xl text-gray-800 mb-6">
+                Con Todo Mi Amor
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-700 mb-6 playfair leading-relaxed">
+                Gracias por existir, por ser quien eres, y por permitirme amarte.
+            </p>
+            <div class="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-xl p-6 mb-6">
+                <p class="text-2xl font-bold text-gray-800 playfair text-glow">
+                    ¡ERES LA RAZON DE QUE ME DESPIERTE FELIZ CADA DIA!
+                </p>
+            </div>
+            <p class="text-lg md:text-xl text-gray-700 playfair leading-relaxed">
+                <strong class="text-2xl dancing-script title-glow">Para mi wawita, con todo mi amor</strong>
+                <br><br>
+                <em>Tu novio que te adora ❤️</em>
+            </p>
+        </div>
+
+        <!-- Botón de regreso final -->
+        <div class="text-center mt-8 fade-in-up delay-6">
+            <a href="index.html" class="btn-special inline-flex items-center text-white font-semibold py-4 px-10 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105">
+                <span class="mr-3">💖</span> Regresar al Inicio
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Contador de cumpleaños
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const currentYear = new Date().getFullYear();
+            let birthday = new Date(currentYear, 8, 27).getTime(); // Septiembre es mes 8 (0-indexado)
+
+            // Si ya pasó el cumpleaños de este año, calcular para el próximo año
+            if (now > birthday) {
+                birthday = new Date(currentYear + 1, 8, 27).getTime();
+            }
+
+            const distance = birthday - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            } else {
+                // ¡Es el cumpleaños!
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+
+                // Crear efecto especial de cumpleaños
+                createBirthdayEffect();
+            }
+        }
+
+        function createBirthdayEffect() {
+            const birthdayEmojis = ['🎉', '🎂', '🎈', '🎁', '✨', '🌟', '💖', '🥳'];
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.textContent = birthdayEmojis[Math.floor(Math.random() * birthdayEmojis.length)];
+                    emoji.style.position = 'fixed';
+                    emoji.style.left = Math.random() * 100 + 'vw';
+                    emoji.style.top = '0';
+                    emoji.style.fontSize = '30px';
+                    emoji.style.pointerEvents = 'none';
+                    emoji.style.zIndex = '1000';
+                    emoji.style.animation = `fall ${3 + Math.random() * 2}s linear forwards`;
+
+                    document.body.appendChild(emoji);
+
+                    setTimeout(() => emoji.remove(), 5000);
+                }, i * 100);
+            }
+        }
+
+        // Actualizar contador cada segundo
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Efectos de corazones flotantes al hacer clic
+        document.addEventListener('click', function(e) {
+            createHeartEffect(e.clientX, e.clientY);
+        });
+
+        function createHeartEffect(x, y) {
+            const hearts = ['💖', '💕', '💗', '💓', '❤️', '🌹', '💝', '✨'];
+            const heart = document.createElement('div');
+            heart.className = 'heart-float';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = (x - 10) + 'px';
+            heart.style.top = (y - 10) + 'px';
+            heart.style.animationDelay = Math.random() * 0.5 + 's';
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // CSS para la animación de caída
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Mensaje de carga
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('❤️ Página cargada con amor especial para ti 🎂');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
